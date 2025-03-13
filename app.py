@@ -3,9 +3,7 @@ from textblob import TextBlob
 from googletrans import Translator
 from streamlit_lottie import st_lottie
 import json
-with open('graficos.json') as source:
-animation=json.load(source)
-st. lottie (animation,width =350)
+
 translator = Translator()
 st.title('Uso de textblob')
 
@@ -48,3 +46,7 @@ with st.expander('Corrección en inglés'):
        if text2:
           blob2=TextBlob(text2)
           st.write((blob2.correct())) 
+
+with open('graficos.json') as source:
+      animation=json.load(source)
+st. lottie (animation,width =350)
