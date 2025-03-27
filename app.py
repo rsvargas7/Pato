@@ -5,9 +5,9 @@ from streamlit_lottie import st_lottie
 import json
 
 translator = Translator()
-st.title('Uso de textblob')
+st.title('Uso de TextBlob')
 
-st.subheader("Por favor escribe en el campo de texto la frase que deseas analizar")
+st.subheader("Ingresa en el campo de texto la frase que quieres analizar")
 with st.sidebar:
                st.subheader("Polaridad y Subjetividad")
                ("""
@@ -21,7 +21,7 @@ with st.sidebar:
                ) 
 
 
-with st.expander('Analizar Polaridad y Subjetividad en un texto'):
+with st.expander('Evaluar la polaridad y subjetividad de un texto'):
     text1 = st.text_area('Escribe por favor: ')
     if text1:
 
@@ -35,14 +35,14 @@ with st.expander('Analizar Polaridad y Subjetividad en un texto'):
         st.write('Subjectivity: ', round(blob.sentiment.subjectivity,2))
         x=round(blob.sentiment.polarity,2)
         if x >= 0.5:
-            st.write( 'Es un sentimiento Positivo 😊')
+            st.write( 'Es una emoción positiva 😊')
         elif x <= -0.5:
-            st.write( 'Es un sentimiento Negativo 😔')
+            st.write( 'Es una emoción negativa 😔')
         else:
-            st.write( 'Es un sentimiento Neutral 😐')
+            st.write( 'Es una emoción neutral 😐')
 
 with st.expander('Corrección en inglés'):
-       text2 = st.text_area('Escribe por favor: ',key='4')
+       text2 = st.text_area('Por favor, escribe: ',key='4')
        if text2:
           blob2=TextBlob(text2)
           st.write((blob2.correct())) 
